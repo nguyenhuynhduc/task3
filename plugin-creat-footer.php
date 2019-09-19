@@ -17,6 +17,8 @@ class MyFooter
         add_action('admin_menu',array($this,'settingMenu'));
         add_action( 'wp_footer', array($this,'selectOption') );
     }
+
+    //select options
     public function selectOption()
     {
         global $wpdb;
@@ -25,21 +27,26 @@ class MyFooter
         echo $footer;
     }
 
+
+    //create menu
     public function settingMenu()
     {
         add_menu_page('My Menu Title',
-            'My Menu',
-            'manage_options',
-            'mymenupage',
-            array($this,'exampleMenu'),
-            '',
-            6
-        );
+        'My Menu',
+        'manage_options',
+        'mymenupage',
+        array($this,'exampleMenu'),
+        '',
+        6
+    );
     }
+
+    //design menu
     function exampleMenu()
     {
         require_once 'pageSetting.php';
     }
+    //add options when actice
     function active_plugin()
     {
         $optionVersion="my Footer Create";
@@ -52,6 +59,8 @@ class MyFooter
             array('option_name'=>'footer_option')
         );
     }
+
+    //update options when deactive
     function deactive(){
         global $wpdb;
         $table_name= $wpdb->prefix ."options";

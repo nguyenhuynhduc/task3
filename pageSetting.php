@@ -1,6 +1,5 @@
 
 <div>
-
     <h2>Footer</h2>
     <form method="post" action="admin.php?page=mymenupage" >
         <input id="footer" name="footer">
@@ -9,7 +8,6 @@
     <?php
     if(isset( $_POST["footer"]))
     {
-
         global $wpdb;
         $table_name= $wpdb->prefix ."options";
         $wpdb->update(
